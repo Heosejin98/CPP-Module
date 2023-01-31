@@ -1,4 +1,4 @@
-NAME	= megaphone
+NAME	= PhoneBook
 	
 CC		= clang++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -9,7 +9,8 @@ RM		= rm -rf
 all: $(NAME)
 
 $(NAME): 
-	@ $(CC) $(FLAGS) megaphone.cpp -o $(NAME)
+	@ $(CC) $(FLAGS) main.cpp PhoneBook.cpp PhoneInfo.cpp -o $(NAME)
+
 
 clean:
 	@$(RM) $(NAME)
