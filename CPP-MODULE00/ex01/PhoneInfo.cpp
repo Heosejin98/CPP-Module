@@ -50,6 +50,16 @@ void   PhoneInfo::view_info(int idx)
         << std::setw(10) << limitString(phone_number) << "|" << std::endl;  
 }
 
+
+void   PhoneInfo::search_info(int idx)
+{
+    std::cout <<  std::setw(20) << "index : " << std::setw(10) << idx+1 << std::endl;
+    std::cout << std::setw(20) << "first name : " << std::setw(10) << limitString(first_name) << std::endl;
+    std::cout << std::setw(20) << "last name : "  << std::setw(10) << limitString(last_name) << std::endl; 
+    std::cout << std::setw(20) << "nick name : "  << std::setw(10) << limitString(nickname) << std::endl;
+    std::cout << std::setw(20) << "phone number : " <<std::setw(10) << limitString(phone_number) << std::endl;  
+}
+
 PhoneInfo::~PhoneInfo()
 {
     std::cout << std::setw(15) << "[PhoneInfo] " << "delete!!" << std::endl;

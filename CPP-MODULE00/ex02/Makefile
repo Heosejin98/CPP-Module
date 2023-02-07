@@ -1,7 +1,7 @@
-NAME	= PhoneBook
+NAME	= Account
 	
 CC		= clang++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS	= -std=c++98
 RM		= rm -rf
 
 .PHONY: all clean re
@@ -9,7 +9,7 @@ RM		= rm -rf
 all: $(NAME)
 
 $(NAME): 
-	@ $(CC) $(FLAGS) main.cpp Phone_book.cpp Phone_info.cpp -o $(NAME)
+	@ $(CC) $(FLAGS) tests.cpp Account.cpp -o $(NAME)
 
 
 clean:

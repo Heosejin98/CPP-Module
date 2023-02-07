@@ -9,6 +9,15 @@ PhoneBook::PhoneBook()
     index = 0;
 }
 
+static void check_input(std::string *input, std::string msg)
+{
+    while (*input == "") {
+        std::cout << "입력하세요";
+        std::cout << msg << " : ";
+        std::getline(std::cin, *input);
+    }
+}
+
 void PhoneBook::add()
 {
     std::string first_name = "";
@@ -18,24 +27,26 @@ void PhoneBook::add()
     std::string darkest_secret = "";
     
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "first name : ";
     std::getline(std::cin, first_name);
+    check_input(&first_name, "first name");
 
     std::cout << "last name : ";
     std::getline(std::cin, last_name);
-
+    check_input(&last_name, "last name");
 
     std::cout << "nick name : ";
     std::getline(std::cin, nickname);
-
+    check_input(&nickname, "nick name");
 
     std::cout << "phone number : ";
     std::getline(std::cin, phone_number);
-
+    check_input(&phone_number, "phone number");
 
     std::cout << "darkest secret : ";
     std::getline(std::cin, darkest_secret);
-
+    check_input(&darkest_secret, "darkest secret");
     
     this->phone_info[index].setPhone_info(first_name, last_name, nickname, phone_number, darkest_secret);
     this->index++;
@@ -72,12 +83,9 @@ void PhoneBook::search()
         phone_info[i].view_info(i);
     }
     print_bar();
-
     std::cout << "출력할 인덱스를 입력하세요 :";
     std::cin >> find_idx;
-    print_field();
-    phone_info[find_idx - 1].view_info(find_idx - 1);
-    print_bar();
+    phone_info[find_idx - 1].search_info(find_idx - 1);
 }
 
 PhoneBook::~PhoneBook()
