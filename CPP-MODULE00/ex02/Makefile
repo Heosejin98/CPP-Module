@@ -1,7 +1,7 @@
 NAME	= Account
 	
 CC		= clang++
-FLAGS	= -std=c++98
+FLAGS	=  -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
 .PHONY: all clean re
