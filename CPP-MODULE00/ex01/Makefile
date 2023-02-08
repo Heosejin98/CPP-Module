@@ -9,7 +9,7 @@ RM		= rm -rf
 all: $(NAME)
 
 $(NAME): 
-	@ $(CC) $(FLAGS) main.cpp PhoneBook.cpp PhoneInfo.cpp -o $(NAME)
+	@ $(CC) $(FLAGS) main.cpp PhoneBook.cpp Contact.cpp -o $(NAME)
 
 
 clean:

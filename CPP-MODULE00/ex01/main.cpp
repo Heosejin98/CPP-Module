@@ -23,8 +23,11 @@ int main()
         if (input.compare("ADD") == 0) {
             phone_book.add();
         } else if (input.compare("SEARCH") == 0) {
-            phone_book.search();
-        } else if (input.compare("EXIT") == 0) {
+            if (!phone_book.search()) {
+                std::cout << "\nEXIT" << std::endl;
+                break ;
+            }
+        } else if (input.compare("EXIT") == 0 || std::cin.eof() == true) {
             std::cout << "EXIT" << std::endl;
             break;
         } else {

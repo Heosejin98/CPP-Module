@@ -1,11 +1,11 @@
 #include <iostream>
 #include <iomanip>
 
-#include "PhoneInfo.hpp"
+#include "Contact.hpp"
 
-PhoneInfo::PhoneInfo()
+Contact::Contact()
 {
-    std::cout << std::setw(15) << "[PhoneInfo] " << "create!!" << std::endl;
+    std::cout << std::setw(15) << "[Contact] " << "create!!" << std::endl;
     first_name = "";
     last_name = "";
     nickname = "";
@@ -13,7 +13,7 @@ PhoneInfo::PhoneInfo()
     darkest_secret = "";
 }
 
-void PhoneInfo::setPhone_info(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret)
+void Contact::setPhone_info(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret)
 {
     this->first_name = first_name;
     this->last_name = last_name;
@@ -32,17 +32,17 @@ static void print_bar()
 
 std::string limitString(const std::string &str)
 {
-    if (str.length() > 9)
+    if (str.length() > 10)
     {
         return str.substr(0, 9) + ".";
     }
     return str;
 }
 
-void   PhoneInfo::view_info(int idx)
+void   Contact::view_info(int idx)
 {
     print_bar();
-    // 한줄에 하나씩 출력 
+
     std::cout << "|" << std::setw(5) << idx+1 << "|" 
         << std::setw(10) << limitString(first_name) << '|'
         << std::setw(10) << limitString(last_name) << '|' 
@@ -51,7 +51,7 @@ void   PhoneInfo::view_info(int idx)
 }
 
 
-void   PhoneInfo::search_info(int idx)
+void   Contact::search_info(int idx)
 {
     std::cout <<  std::setw(20) << "index : " << std::setw(10) << idx+1 << std::endl;
     std::cout << std::setw(20) << "first name : " << std::setw(10) << limitString(first_name) << std::endl;
@@ -60,9 +60,9 @@ void   PhoneInfo::search_info(int idx)
     std::cout << std::setw(20) << "phone number : " <<std::setw(10) << limitString(phone_number) << std::endl;  
 }
 
-PhoneInfo::~PhoneInfo()
+Contact::~Contact()
 {
-    std::cout << std::setw(15) << "[PhoneInfo] " << "delete!!" << std::endl;
+    std::cout << std::setw(15) << "[Contact] " << "delete!!" << std::endl;
 }
 
 

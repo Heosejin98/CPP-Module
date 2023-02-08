@@ -74,18 +74,54 @@ void print_field()
     << std::setw(10) << "PhoneNum" <<  "|" << std::endl;
 }
 
-void PhoneBook::search()
+bool isNumber(std::string str)
 {
-    int find_idx;
+    for (unsigned long i = 0; i < str.length(); i++) {
+        if (isdigit(str[i]) == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int search_index()
+{
+    std::string find_idx;
+
+    print_bar();
+    std::cout << "출력할 인덱스를 입력하세요 :";
+    std::cin >> find_idx;
+
+    if (std::cin.eof() == true) {
+        return (-1);
+    }
+    
+    if (isNumber(find_idx) && (std::stoi(find_idx) >= 1 && std::stoi(find_idx) <= 8)) {
+        return std::stoi(find_idx);
+    } else {
+        std::cout << "1 ~ 8사이의 인덱스를 입력하세요" << std::endl;
+        return search_index();
+    }
+}
+
+bool PhoneBook::search()
+{
+    
+    int contact_index;
 
     print_field();
     for (int i = 0; i < 8; i++){
         phone_info[i].view_info(i);
     }
-    print_bar();
-    std::cout << "출력할 인덱스를 입력하세요 :";
-    std::cin >> find_idx;
-    phone_info[find_idx - 1].search_info(find_idx - 1);
+
+    contact_index = search_index();
+
+    if (contact_index == -1) {
+        return (false);
+    }
+
+    phone_info[contact_index - 1].search_info(contact_index - 1);;
+    return (true);
 }
 
 PhoneBook::~PhoneBook()
